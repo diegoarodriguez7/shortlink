@@ -1,61 +1,100 @@
-import Image from 'next/image';
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+import { Show, SignUpButton, SignInButton } from '@clerk/nextjs';
+import { Link2, BarChart2, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
-export default function Home() {
+const features = [
+  {
+    icon: Link2,
+    title: 'Shorten Any URL',
+    description:
+      'Turn long, unwieldy links into clean, shareable short URLs in seconds. Perfect for social media, emails, and campaigns.',
+  },
+  {
+    icon: BarChart2,
+    title: 'Track Every Click',
+    description:
+      'Get real-time analytics on every link you create. Know when, where, and how many times your links are being visited.',
+  },
+  {
+    icon: Zap,
+    title: 'Lightning Fast',
+    description:
+      'All redirects are handled at the edge for near-instant load times. Your audience never waits, no matter where they are.',
+  },
+];
+
+export default async function Home() {
+  const { userId } = await auth();
+  if (userId) redirect('/dashboard');
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col flex-1">
+      {/* Hero */}
+      <section className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-24 text-center">
+        <div className="flex flex-col items-center gap-4 max-w-2xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Short links. Big impact.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50">
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50">
-              Learning
-            </a>{' '}
-            center.
+          <p className="text-lg text-muted-foreground max-w-xl">
+            ShortLink makes it easy to create, share, and track shortened URLs. Go from a messy
+            link to a memorable one in one click.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer">
-            Documentation
-          </a>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Show when="signed-out">
+            <SignUpButton mode="modal">
+              <Button size="lg">Get Started Free</Button>
+            </SignUpButton>
+            <SignInButton mode="modal">
+              <Button size="lg" variant="outline">
+                Sign In
+              </Button>
+            </SignInButton>
+          </Show>
         </div>
-      </main>
+      </section>
+
+      {/* Features */}
+      <section className="border-t px-6 py-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-12 text-center text-2xl font-semibold tracking-tight">
+            Everything you need to manage your links
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {features.map(({ icon: Icon, title, description }) => (
+              <Card key={title}>
+                <CardHeader>
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <CardTitle>{title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t px-6 py-20 text-center">
+        <div className="mx-auto max-w-lg flex flex-col items-center gap-6">
+          <h2 className="text-2xl font-semibold tracking-tight">Ready to get started?</h2>
+          <p className="text-muted-foreground">
+            Create your free account today and start shortening links in minutes.
+          </p>
+          <Show when="signed-out">
+            <SignUpButton mode="modal">
+              <Button size="lg">Create Free Account</Button>
+            </SignUpButton>
+          </Show>
+        </div>
+      </section>
     </div>
   );
 }
