@@ -63,8 +63,7 @@ export default async function Home() {
             Simple · Fast · Free
           </span>
           <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Shorten URLs.{' '}
-            <span className="text-primary">Share smarter.</span>
+            Shorten URLs. <span className="text-primary">Share smarter.</span>
           </h1>
           <p className="max-w-xl text-lg text-muted-foreground">
             ShortLink turns lengthy, unwieldy URLs into clean, trackable short
@@ -79,16 +78,11 @@ export default async function Home() {
               </Button>
             </SignUpButton>
           </Show>
-          <Button variant="outline" size="lg" className="px-8">
-            <a href="#features">See features</a>
-          </Button>
         </div>
       </section>
 
       {/* Features */}
-      <section
-        id="features"
-        className="bg-muted/40 px-6 py-20">
+      <section id="features" className="bg-muted/40 px-6 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight">
