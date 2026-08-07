@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
+import { shadcn } from '@clerk/themes';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header';
 import './globals.css';
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ theme: shadcn }}>
       <html
         lang="en"
         className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}>
