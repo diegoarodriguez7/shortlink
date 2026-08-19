@@ -72,7 +72,7 @@ export default async function Home() {
         </div>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Show when="signed-out">
-            <SignUpButton mode="modal">
+            <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
               <Button size="lg" className="px-8">
                 Get started for free
               </Button>
@@ -121,7 +121,7 @@ export default async function Home() {
             Create a free account and start shortening links in under a minute.
           </p>
           <Show when="signed-out">
-            <SignUpButton mode="modal">
+            <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
               <Button size="lg" className="px-8">
                 Create your free account
               </Button>

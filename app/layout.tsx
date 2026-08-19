@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
-import { shadcn } from '@clerk/themes';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header';
+import { shadcn } from '@clerk/themes';
+import { shadesOfPurple } from '@clerk/themes';
 import './globals.css';
 
 const geistSans = Geist({
