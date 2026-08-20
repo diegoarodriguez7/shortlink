@@ -2,12 +2,15 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
 
-// Next.js 16 renamed "middleware" to "proxy"; clerkMiddleware still returns a compatible handler.
-export default clerkMiddleware(async (auth, req) => {
+const clerkHandler = clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
     await auth.protect();
   }
 });
+
+// Next.js 16 (proxy.ts) looks for a named `proxy` export first; keep default for compatibility.
+export const proxy = clerkHandler;
+export default clerkHandler;
 
 export const config = {
   matcher: [

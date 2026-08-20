@@ -4,19 +4,14 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 
-- **[Auuthentication Guidelines](docs/clerk-auth.md)** - Clerk integration, route protection, and auth patterns.
-- **[UI Components](docs/shadcn-ui.md)** - shadcn/ui usage and component conventions.
+- **[Auuthentication Guidelines](/clerk-auth.md)** - Clerk integration, route protection, and auth patterns.
+- **[UI Components](/shadcn-ui.md)** - shadcn/ui usage and component conventions.
 
 ## Project
 
 `shortlink` is a Next.js 16 (App Router) link-shortener app using Clerk for auth, Drizzle ORM + Neon Postgres for data, and Tailwind v4 + shadcn/ui for styling.
 
 ## Coding standards
-
-Detailed, topic-specific standards live in [docs/](docs/).
-
-> [!IMPORTANT]
-> Before generating ANY code, you MUST read every relevant individual instructions file in [docs/](docs/) (e.g. [docs/clerk-auth.md](docs/clerk-auth.md), [docs/shadcn-ui.md](docs/shadcn-ui.md), [docs/nextjs-conventions.md](docs/nextjs-conventions.md)). This is non-negotiable — do not skip it, do not rely on memory of a previous read, and do not assume general Next.js/Clerk/shadcn knowledge is sufficient, since this project deviates from defaults.
 
 ## Non-negotiables
 
