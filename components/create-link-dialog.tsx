@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useActionState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import { useActionState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -10,19 +10,19 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { createLink, type CreateLinkState } from '@/app/actions/links';
-import { Plus } from 'lucide-react';
-import { useState } from 'react';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { createLink, type CreateLinkState } from "@/app/actions/links";
+import { Plus } from "lucide-react";
+import { useState } from "react";
 
 export function CreateLinkDialog() {
   const [open, setOpen] = useState(false);
-  const [state, formAction, pending] = useActionState<CreateLinkState | null, FormData>(
-    createLink,
-    null
-  );
+  const [state, formAction, pending] = useActionState<
+    CreateLinkState | null,
+    FormData
+  >(createLink, null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -65,8 +65,10 @@ export function CreateLinkDialog() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="customCode">
-              Short code{' '}
-              <span className="text-muted-foreground font-normal">(optional)</span>
+              Short code{" "}
+              <span className="text-muted-foreground font-normal">
+                (optional)
+              </span>
             </Label>
             <Input
               id="customCode"
@@ -77,11 +79,11 @@ export function CreateLinkDialog() {
             />
           </div>
           {state && !state.success && (
-            <p className="text-sm text-destructive">{state.error}</p>
+            <p className="text-destructive text-sm">{state.error}</p>
           )}
           <DialogFooter>
             <Button type="submit" disabled={pending}>
-              {pending ? 'Creating…' : 'Create link'}
+              {pending ? "Creating…" : "Create link"}
             </Button>
           </DialogFooter>
         </form>

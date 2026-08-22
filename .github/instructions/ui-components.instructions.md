@@ -28,7 +28,7 @@ This uses the project's [components.json](../components.json) config (`style: ba
 Import shadcn/ui primitives via the alias and compose feature-level UI from them:
 
 ```tsx
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 ```
 
 Feature components (e.g. a link card or a form) should be composed from shadcn/ui primitives, not built as raw `<button>`/`<input>`/`<div>` trees that duplicate what shadcn already provides.

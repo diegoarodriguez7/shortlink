@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
   return (
     <header className="flex items-center justify-between border-b px-6 py-4">
-      <Link href="/" className="text-lg font-semibold">
+      <Link href="/dashboard" className="text-lg font-semibold">
         ShortLink
       </Link>
       <div className="flex items-center gap-3">

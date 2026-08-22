@@ -1,0 +1,23 @@
+# build output
+.next/
+out/
+build/
+coverage/
+
+# dependencies
+node_modules/
+
+# generated
+next-env.d.ts
+*.tsbuildinfo
+package-lock.json
+drizzle/meta/
+skills-lock.json
+.neon/
+
+# assets
+public/
+
+# vendored agent skills
+.agents/skills/
+.claude/

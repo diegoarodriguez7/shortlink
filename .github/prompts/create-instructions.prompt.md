@@ -10,9 +10,9 @@ Example pattern for server actions in this repo:
 
 ```ts
 // app/dashboard/components/LinkForm/actions.ts
-import { z } from 'zod';
-import { auth } from '@clerk/nextjs/server';
-import { createLink } from '@/data/links';
+import { z } from "zod";
+import { auth } from "@clerk/nextjs/server";
+import { createLink } from "@/data/links";
 
 const createLinkSchema = z.object({
   url: z.string().url(),
@@ -22,12 +22,12 @@ const createLinkSchema = z.object({
 export async function createLinkAction(input: { url: string; slug: string }) {
   const parsed = createLinkSchema.safeParse(input);
   if (!parsed.success) {
-    return { error: 'Invalid link payload' };
+    return { error: "Invalid link payload" };
   }
 
   const { userId } = await auth();
   if (!userId) {
-    return { error: 'Unauthorized' };
+    return { error: "Unauthorized" };
   }
 
   const link = await createLink({ userId, ...parsed.data });
@@ -36,15 +36,15 @@ export async function createLinkAction(input: { url: string; slug: string }) {
 ```
 
 ```tsx
-'use client';
+"use client";
 
-import { createLinkAction } from './actions';
+import { createLinkAction } from "./actions";
 
 export function LinkForm() {
   const handleSubmit = async () => {
     const result = await createLinkAction({
-      url: 'https://example.com',
-      slug: 'demo',
+      url: "https://example.com",
+      slug: "demo",
     });
     if (result.error) {
       console.error(result.error);
