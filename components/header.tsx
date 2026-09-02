@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
+import Link from 'next/link';
+import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
   return (

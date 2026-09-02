@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useActionState, useEffect, useRef, useState } from "react";
-import { Pencil, Trash2 } from "lucide-react";
+import { useActionState, useEffect, useRef, useState } from 'react';
+import { Pencil, Trash2 } from 'lucide-react';
 import {
   deleteLink,
   type LinkMutationState,
   updateLink,
-} from "@/app/actions/links";
-import { Button } from "@/components/ui/button";
+} from '@/app/actions/links';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -17,9 +17,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 type LinkItemActionsProps = {
   linkId: number;
@@ -109,7 +109,7 @@ export function LinkItemActions({
             )}
             <DialogFooter>
               <Button type="submit" disabled={isEditing}>
-                {isEditing ? "Saving…" : "Save changes"}
+                {isEditing ? 'Saving…' : 'Save changes'}
               </Button>
             </DialogFooter>
           </form>
@@ -143,7 +143,7 @@ export function LinkItemActions({
                 Cancel
               </DialogClose>
               <Button type="submit" variant="destructive" disabled={isDeleting}>
-                {isDeleting ? "Deleting…" : "Delete link"}
+                {isDeleting ? 'Deleting…' : 'Delete link'}
               </Button>
             </DialogFooter>
           </form>

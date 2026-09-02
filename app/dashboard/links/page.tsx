@@ -1,14 +1,14 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth } from '@clerk/nextjs/server';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { getLinksByClerkUserId } from "@/data/links";
-import { CreateLinkDialog } from "@/components/create-link-dialog";
-import { LinkItemActions } from "@/components/link-item-actions";
+} from '@/components/ui/card';
+import { getLinksByClerkUserId } from '@/data/links';
+import { CreateLinkDialog } from '@/components/create-link-dialog';
+import { LinkItemActions } from '@/components/link-item-actions';
 
 export default async function DashboardLinksPage() {
   const { userId } = await auth();

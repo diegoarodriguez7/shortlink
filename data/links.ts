@@ -1,6 +1,6 @@
-import { desc, eq } from "drizzle-orm";
-import { db } from "@/db";
-import { links } from "@/db/schema";
+import { desc, eq } from 'drizzle-orm';
+import { db } from '@/db';
+import { links } from '@/db/schema';
 
 export async function getLinksByClerkUserId(clerkUserId: string) {
   return db

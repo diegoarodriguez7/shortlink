@@ -1,51 +1,51 @@
-import Link from "next/link";
-import { Show, SignUpButton } from "@clerk/nextjs";
-import { Link2, BarChart2, Shield, Zap, Globe, Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from 'next/link';
+import { Show, SignUpButton } from '@clerk/nextjs';
+import { Link2, BarChart2, Shield, Zap, Globe, Copy } from 'lucide-react';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/card";
+} from '@/components/ui/card';
 
 const features = [
   {
     icon: Zap,
-    title: "Instant Shortening",
+    title: 'Instant Shortening',
     description:
-      "Paste any long URL and get a clean, shareable short link in seconds — no sign-up required to try it.",
+      'Paste any long URL and get a clean, shareable short link in seconds — no sign-up required to try it.',
   },
   {
     icon: BarChart2,
-    title: "Click Analytics",
+    title: 'Click Analytics',
     description:
-      "Track how many times your links are clicked. Know exactly how your audience is engaging with your content.",
+      'Track how many times your links are clicked. Know exactly how your audience is engaging with your content.',
   },
   {
     icon: Copy,
-    title: "Easy Management",
+    title: 'Easy Management',
     description:
-      "All your short links live in one organised dashboard. Edit, copy, or delete them whenever you need.",
+      'All your short links live in one organised dashboard. Edit, copy, or delete them whenever you need.',
   },
   {
     icon: Globe,
-    title: "Reliable Redirects",
+    title: 'Reliable Redirects',
     description:
-      "Every redirect is fast and dependable, so your audience always lands where you intend.",
+      'Every redirect is fast and dependable, so your audience always lands where you intend.',
   },
   {
     icon: Link2,
-    title: "Custom Aliases",
+    title: 'Custom Aliases',
     description:
-      "Choose a meaningful slug for your link instead of a random string to make it memorable and brand-friendly.",
+      'Choose a meaningful slug for your link instead of a random string to make it memorable and brand-friendly.',
   },
   {
     icon: Shield,
-    title: "Secure & Private",
+    title: 'Secure & Private',
     description:
-      "Your links and data are protected with industry-standard security. Only you control your short links.",
+      'Your links and data are protected with industry-standard security. Only you control your short links.',
   },
 ];
 
@@ -74,9 +74,12 @@ export default function DashboardPage() {
             </SignUpButton>
           </Show>
           <Show when="signed-in">
-            <Button asChild size="lg" className="px-8">
-              <Link href="/dashboard/links">Go to your links</Link>
-            </Button>
+            <Link
+              href="/dashboard/links"
+              className={buttonVariants({ size: 'lg', className: 'px-8' })}
+            >
+              Go to your links
+            </Link>
           </Show>
         </div>
       </section>
@@ -126,9 +129,12 @@ export default function DashboardPage() {
             </SignUpButton>
           </Show>
           <Show when="signed-in">
-            <Button asChild size="lg" className="px-8">
-              <Link href="/dashboard/links">Manage your links</Link>
-            </Button>
+            <Link
+              href="/dashboard/links"
+              className={buttonVariants({ size: 'lg', className: 'px-8' })}
+            >
+              Manage your links
+            </Link>
           </Show>
         </div>
       </section>

@@ -1,6 +1,6 @@
 ---
 name: Instructions-Generator
-description: "This agent generates highly specific agent instructions files."
+description: 'This agent generates highly specific agent instructions files.'
 tools: [read, edit, search, web]
 ---
 

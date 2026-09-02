@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useActionState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { useActionState, useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -10,12 +10,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { createLink, type CreateLinkState } from "@/app/actions/links";
-import { Plus } from "lucide-react";
-import { useState } from "react";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { createLink, type CreateLinkState } from '@/app/actions/links';
+import { Plus } from 'lucide-react';
+import { useState } from 'react';
 
 export function CreateLinkDialog() {
   const [open, setOpen] = useState(false);
@@ -65,7 +65,7 @@ export function CreateLinkDialog() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="customCode">
-              Short code{" "}
+              Short code{' '}
               <span className="text-muted-foreground font-normal">
                 (optional)
               </span>
@@ -83,7 +83,7 @@ export function CreateLinkDialog() {
           )}
           <DialogFooter>
             <Button type="submit" disabled={pending}>
-              {pending ? "Creating…" : "Create link"}
+              {pending ? 'Creating…' : 'Create link'}
             </Button>
           </DialogFooter>
         </form>

@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { getLinkByShortCode } from "@/data/links";
+import { NextResponse } from 'next/server';
+import { getLinkByShortCode } from '@/data/links';
 
 export async function GET(
   _req: Request,
@@ -9,7 +9,7 @@ export async function GET(
   const link = await getLinkByShortCode(shortcode);
 
   if (!link) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
   return NextResponse.redirect(link.originalUrl, { status: 301 });
